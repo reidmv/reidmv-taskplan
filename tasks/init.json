@@ -1,0 +1,25 @@
+{
+  "description": "Run a Puppet task plan with Bolt",
+  "parameters": {
+    "plan": {
+      "type": "String[1]",
+      "description": "The task plan to run"
+    },
+    "params": {
+      "type": "Hash",
+      "description": "Parameters to give to the task plan"
+    },
+    "arguments": {
+      "type": "Hash",
+      "description": "Hash of Bolt arguments to pass, e.g.: {modulepath=>/expl/path, ssl-verify=>false}"
+    },
+    "debug": {
+      "type": "Optional[Boolean]",
+      "description": "Set to true to enable debug output"
+    }
+  },
+  "input_method": "stdin",
+  "implementations": [
+    {"name": "init.rb"}
+  ]
+}
