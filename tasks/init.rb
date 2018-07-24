@@ -37,11 +37,7 @@ end
 
 def run_command(*command)
   output, status = Open3.capture2e(*command)
-  if status.success?
-    STDOUT.puts output
-  else
-    STDERR.puts output
-  end
+  STDOUT.puts output
   status
 end
 
