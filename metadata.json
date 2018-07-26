@@ -2,9 +2,11 @@
   "name": "reidmv-taskplan",
   "version": "0.1.0",
   "author": "Reid Vandewiele",
-  "summary": "",
+  "summary": "Run Puppet task plans, using Bolt, via a task",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/reidmv/reidmv-taskplan",
+  "project_page": "https://github.com/reidmv/reidmv-taskplan",
+  "issues_url": "https://github.com/reidmv/reidmv-taskplan/issues",
   "dependencies": [
 
   ],
@@ -66,5 +68,6 @@
   ],
   "pdk-version": "1.4.1",
   "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
-  "template-ref": "1.4.1-0-g52adbbb"
+  "template-ref": "1.4.1-0-g52adbbb",
+  "tags": [ "task", "plan", "bolt" ]
 }
