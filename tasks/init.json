@@ -16,6 +16,10 @@
     "debug": {
       "type": "Optional[Boolean]",
       "description": "Set to true to enable debug output"
+    },
+    "bolt_path": {
+      "type": "Optional[String]",
+      "description": "The full path to the bolt binary"
     }
   },
   "input_method": "stdin",

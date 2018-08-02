@@ -11,8 +11,15 @@ require 'open3'
 $params = JSON.parse(STDIN.read)
 
 def main
+
+  if $params['bolt_path'].nil?
+    $bolt_path = 'bolt'
+  else
+    $bolt_path = $params['bolt_path']
+  end
+
   cmd = Array.new
-  cmd << 'bolt' << 'plan' << 'run'
+  cmd << $bolt_path << 'plan' << 'run'
   cmd << $params['plan']
   cmd << '--params' << $params['params'].to_json
   cmd << '--format' << 'json'
