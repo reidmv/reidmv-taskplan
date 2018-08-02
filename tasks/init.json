@@ -13,6 +13,10 @@
       "type": "Hash",
       "description": "Hash of Bolt arguments to pass, e.g.: {modulepath=>/expl/path, ssl-verify=>false}"
     },
+    "env": {
+      "type": "Optional[Hash]",
+      "description": "Hash of environment variables to pass to the bolt command"
+    },
     "debug": {
       "type": "Optional[Boolean]",
       "description": "Set to true to enable debug output"
