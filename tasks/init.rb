@@ -10,6 +10,15 @@ require 'open3'
 #     Optional[Boolean] debug
 $params = JSON.parse(STDIN.read)
 
+# The HOME environment variable is important when invoking Bolt. If HOME is not
+# already set, set it.
+if ENV['HOME'].nil?
+  require 'etc'
+  ENV['HOME'] = Etc.getpwuid.dir
+end
+
+# Bolt is expected on paths that may or may not be in the PATH variable. When
+# invoking it, prefer the package, then the gem, then default to PATH.
 $bolt = if File.exist? '/opt/puppetlabs/bin/bolt'
           '/opt/puppetlabs/bin/bolt' # package install
         elsif File.exist? '/opt/puppetlabs/puppet/bin/bolt'
