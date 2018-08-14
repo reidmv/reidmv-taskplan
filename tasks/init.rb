@@ -10,9 +10,17 @@ require 'open3'
 #     Optional[Boolean] debug
 $params = JSON.parse(STDIN.read)
 
+$bolt = if File.exist? '/opt/puppetlabs/bin/bolt'
+          '/opt/puppetlabs/bin/bolt' # package install
+        elsif File.exist? '/opt/puppetlabs/puppet/bin/bolt'
+          '/opt/puppetlabs/puppet/bin/bolt' # gem install into the agent
+        else
+          'bolt' # expect it on the PATH
+        end
+
 def main
   cmd = Array.new
-  cmd << 'bolt' << 'plan' << 'run'
+  cmd << $bolt << 'plan' << 'run'
   cmd << $params['plan']
   cmd << '--params' << $params['params'].to_json
   cmd << '--format' << 'json'
