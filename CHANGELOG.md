@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.1.1
+
+**Bugfixes**
+
+Allow the taskplan task to locate the bolt executable in normal locations, even if those locations are not in the PATH.
+
 ## Release 0.1.0
 
 **Features**

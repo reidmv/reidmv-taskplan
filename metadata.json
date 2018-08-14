@@ -1,6 +1,6 @@
 {
   "name": "reidmv-taskplan",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Reid Vandewiele",
   "summary": "Run Puppet task plans, using Bolt, via a task",
   "license": "Apache-2.0",
