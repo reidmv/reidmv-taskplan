@@ -45,15 +45,25 @@ def main
     end
   end
 
-  if run_command(*cmd).success?
+  unless $params.has_key? 'env'
+    $params['env'] = {}
+  end
+
+  unless $params['env'].has_key? 'HOME'
+    $params['env'] = {
+      'HOME' => '/root',
+    }
+  end
+
+  if run_command($params['env'], *cmd).success?
     exit 0
   else
     exit 1
   end
 end
 
-def run_command(*command)
-  output, status = Open3.capture2e(*command)
+def run_command(env, *command)
+  output, status = Open3.capture2e(env, *command)
   STDOUT.puts output
   status
 end
