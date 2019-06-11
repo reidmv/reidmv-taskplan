@@ -1,6 +1,8 @@
 #!/opt/puppetlabs/puppet/bin/ruby
+# rubocop:disable Style/GlobalVars
 require 'json'
 require 'open3'
+require 'etc'
 
 # Parameters expected:
 #   Hash
@@ -8,14 +10,11 @@ require 'open3'
 #     Hash              params
 #     Hash              arguments
 #     Optional[Boolean] debug
-$params = JSON.parse(STDIN.read)
+$params ||= JSON.parse(STDIN.read)
 
 # The HOME environment variable is important when invoking Bolt. If HOME is not
 # already set, set it.
-if ENV['HOME'].nil?
-  require 'etc'
-  ENV['HOME'] = Etc.getpwuid.dir
-end
+ENV['HOME'] ||= Etc.getpwuid.dir
 
 # Bolt is expected on paths that may or may not be in the PATH variable. When
 # invoking it, prefer the package, then the gem, then default to PATH.
@@ -28,20 +27,22 @@ $bolt = if File.exist? '/opt/puppetlabs/bin/bolt'
         end
 
 def main
-  cmd = Array.new
+  cmd = []
   cmd << $bolt << 'plan' << 'run'
   cmd << $params['plan']
   cmd << '--params' << $params['params'].to_json
   cmd << '--format' << 'json'
 
-  $params['arguments'].each do |key,val|
-    case val
-    when true
-      cmd << "--#{key}"
-    when false
-      cmd << "--no-#{key}"
-    else
-      cmd << "--#{key}" << val
+  if $params['arguments']
+    $params['arguments'].each do |key, val|
+      case val
+      when true
+        cmd << "--#{key}"
+      when false
+        cmd << "--no-#{key}"
+      else
+        cmd << "--#{key}" << val
+      end
     end
   end
 

@@ -15,3 +15,22 @@ bolt task run taskplan \
   --nodes local://localhost \
   --params '{"plan":"taskplan::test","params":{"message":"Hello"},"arguments":{"modulepath":"/example/modules"}}'
 ```
+
+### Plan-specific tailored taskplan task
+
+To create a plan-specific tailored taskplan task, use something like the following:
+
+```ruby
+#!/opt/puppetlabs/puppet/bin/ruby
+require 'json'
+
+$params = {
+  'params'    => JSON.parse(STDIN.read),
+  'plan'      => 'example::myplan',
+  'arguments' => [],
+}
+
+taskplanrb = File.join($params['params']['_installdir'], 'util', 'files', 'taskplan.rb')
+
+load(taskplanrb)
+```

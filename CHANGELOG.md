@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.2.0
+
+**Features**
+
+Modifications to support tailored tasks that form custom task interfaces to specific plans.
+
 ## Release 0.1.2
 
 **Bugfixes**
