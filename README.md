@@ -20,17 +20,36 @@ bolt task run taskplan \
 
 To create a plan-specific tailored taskplan task, use something like the following:
 
+```json
+{
+  "description": "Sample plan-specific tailored taskplan task",
+  "parameters": {
+    "my_plans_parameter": {
+      "type": "String",
+      "description": "The first parameter from the plan"
+    },
+    "my_plans_other_parameter": {
+      "type": "Integer",
+      "description": "Another parameter from the plan"
+    }
+  },
+  "input_method": "stdin",
+  "files": [
+    "taskplan/tasks/init.rb"
+  ]
+}
+```
+
 ```ruby
 #!/opt/puppetlabs/puppet/bin/ruby
 require 'json'
 
 $params = {
-  'params'    => JSON.parse(STDIN.read),
-  'plan'      => 'example::myplan',
-  'arguments' => [],
+  'params' => JSON.parse(STDIN.read),
+  'plan'   => 'example::myplan',
 }
 
-taskplanrb = File.join($params['params']['_installdir'], 'util', 'files', 'taskplan.rb')
+taskplanrb = File.join($params['params']['_installdir'], 'taskplan', 'tasks', 'init.rb')
 
 load(taskplanrb)
 ```
