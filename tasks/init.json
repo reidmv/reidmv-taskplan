@@ -1,17 +1,18 @@
 {
-  "description": "Run a Puppet task plan with Bolt",
+  "description": "A task to run a Puppet plan with Bolt",
   "parameters": {
     "plan": {
       "type": "String[1]",
-      "description": "The task plan to run"
+      "description": "The plan to run"
     },
     "params": {
       "type": "Hash",
-      "description": "Parameters to give to the task plan"
+      "description": "Parameters to give to the plan"
     },
     "arguments": {
       "type": "Hash",
-      "description": "Hash of Bolt arguments to pass, e.g.: {modulepath=>/expl/path, ssl-verify=>false}"
+      "description": "Hash of Bolt arguments to pass, e.g.: {modulepath=>/expl/path, ssl-verify=>false}",
+      "default": { }
     },
     "debug": {
       "type": "Optional[Boolean]",

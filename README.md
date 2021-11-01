@@ -18,7 +18,13 @@ bolt task run taskplan \
 
 ### Plan-specific tailored taskplan task
 
-To create a plan-specific tailored taskplan task, use something like the following:
+The task `taskplan` is generic, and can run any plan, but because it permits the user to pass arbitrary command line flags to Bolt, it is effectively a privileged task.
+
+As an alternative to permitting users to run the generic privileged task, a plan-specific tailored task, built on taskplan, can be created. 
+
+To create a tailored plan-specific taskplan, use the following pattern.
+
+tailored.json file:
 
 ```json
 {
@@ -39,6 +45,8 @@ To create a plan-specific tailored taskplan task, use something like the followi
   ]
 }
 ```
+
+tailored.rb file:
 
 ```ruby
 #!/opt/puppetlabs/puppet/bin/ruby
