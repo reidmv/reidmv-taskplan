@@ -1,3 +1,4 @@
+.git/
 .*.sw[op]
 .metadata
 .yardoc
@@ -19,4 +20,16 @@
 /tmp/
 /vendor/
 /convert_report.txt
+/update_report.txt
 .DS_Store
+.project
+.envrc
+/inventory.yaml
+/spec/fixtures/litmus_inventory.yaml
+*.tar.gz
+.modules/
+.plan_cache.json
+.rerun.json
+.resource_types/
+bolt-debug.log
+bolt-project.yaml

@@ -1,0 +1,15 @@
+---
+.gitignore:
+  paths:
+    - '*.tar.gz'
+    - '.modules/'
+    - '.plan_cache.json'
+    - '.rerun.json'
+    - '.resource_types/'
+    - 'bolt-debug.log'
+    - 'bolt-project.yaml'
+
+.github/workflows/auto_release.yml:
+  unmanaged: true
+.github/workflows/release.yml:
+  unmanaged: false
