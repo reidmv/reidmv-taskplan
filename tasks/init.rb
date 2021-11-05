@@ -1,5 +1,5 @@
 #!/opt/puppetlabs/puppet/bin/ruby
-# rubocop:disable Style/GlobalVars
+# rubocop:disable Style/GlobalVars, Style/SafeNavigation
 require 'json'
 require 'open3'
 require 'etc'
