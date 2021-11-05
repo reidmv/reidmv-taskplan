@@ -11,8 +11,7 @@
     },
     "arguments": {
       "type": "Optional[Hash]",
-      "description": "Hash of Bolt arguments to pass, e.g.: {modulepath=>/expl/path, ssl-verify=>false}",
-      "default": { }
+      "description": "Hash of Bolt arguments to pass, e.g.: {modulepath=>/expl/path, ssl-verify=>false}"
     },
     "debug": {
       "type": "Optional[Boolean]",
