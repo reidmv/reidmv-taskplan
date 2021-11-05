@@ -10,7 +10,7 @@
       "description": "Parameters to give to the plan"
     },
     "arguments": {
-      "type": "Hash",
+      "type": "Optional[Hash]",
       "description": "Hash of Bolt arguments to pass, e.g.: {modulepath=>/expl/path, ssl-verify=>false}",
       "default": { }
     },
